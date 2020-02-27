@@ -34,13 +34,16 @@ void Player::handleInput(float dt)
 
 void Player::update(float dt) 
 {
-	if(hasFired)
+	if (hasFired)
+	{
 		bullet->update(dt);
+	}
 }
 
 Bullet* Player::spawn(sf::Vector2f pos)
 {
-	Bullet newBullet;
-	newBullet.setPosition(pos);
-	return &newBullet;
+	Bullet* newBullet;
+	newBullet = new Bullet();
+	newBullet->setPosition(pos);
+	return newBullet;
 }
